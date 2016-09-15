@@ -1,6 +1,6 @@
 # Reversing a linked list. Runs with O(n) time, constant space. 
 
-testFilename = "listreverse.txt"
+testFilename = "linkedlists/listreverse.txt"
 
 def run(intext):
     intext = buildLinks(list(intext))
