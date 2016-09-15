@@ -1,8 +1,4 @@
-from strings import urlify
+import linkreverse
 
-testText = open(urlify.testFilename).read()
-urlify.run(testText)
-
-
-
-
+testText = open(linkreverse.testFilename).read()
+linkreverse.run(testText)
