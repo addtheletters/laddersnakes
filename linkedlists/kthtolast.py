@@ -16,7 +16,7 @@ def kthToLast(node, k):
     return pkth.val
 
 testarr = [5, 6, 2, 76, 7, 75, 3, 4, 4 ]
-testk = 0
+testk = 5
 testlist = lists.buildLinks(testarr)
 print(testlist)
 if testk < 1:
