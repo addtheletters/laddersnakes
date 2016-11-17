@@ -1,4 +1,7 @@
-# Dijkstra. Shortest paths, no negative-weight edges.
+# Dijkstra algorithm. 
+# Find the shortest paths from a source to elsewhere in the graph, no negative-weight edges.
+# https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
 import testgraph as tg
 from heapdict import heapdict
 
@@ -19,12 +22,12 @@ def dijkstra_noPQ(graph, src): # not using a priority queue
         return found
 
     def relax(vertex):
-        unvisited.remove(v)
+        unvisited.remove(vertex)
         for adj in graph[vertex]:
             if adj in unvisited:
                 if (adj not in dist) or (dist[vertex] + graph[vertex][adj] < dist[adj]):
                     dist[adj] = (dist[vertex] + graph[vertex][adj])
-                    path[adj] = v
+                    path[adj] = vertex
 
     while len(unvisited) > 0:
         v = findMinDist()
@@ -38,20 +41,19 @@ def dijkstra_PQ(graph, src):
     path = {}
     dist[src] = 0
 
-    pq = heapdict()
+    pq = heapdict() # now using a priority queue
     pq[src] = 0
 
     def findMinDist():
         return pq.popitem()[0]
 
     def relax(vertex):
-        unvisited.remove(v)
-
+        unvisited.remove(vertex)
         for adj in graph[vertex]:
             if adj in unvisited:
                 if (adj not in dist) or (dist[vertex] + graph[vertex][adj] < dist[adj]):
                     dist[adj] = (dist[vertex] + graph[vertex][adj])
-                    path[adj] = v
+                    path[adj] = vertex
                     pq[adj] = dist[adj]
 
     while len(unvisited) > 0:
@@ -60,8 +62,6 @@ def dijkstra_PQ(graph, src):
     
     return dist, path
 
-
 print(tg.adjList())
 print(dijkstra_noPQ(tg.adjList(), "A"))
 print(dijkstra_PQ(tg.adjList(), "A"))
-
