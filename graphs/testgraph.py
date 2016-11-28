@@ -95,6 +95,7 @@ def testConvert(alst):
     print(alst)
     tmat, tind = adjMat(alst)
     telst = edgeList(alst)
+    print(telst)
     print(fromAdjMat(tmat, tind))
     print(fromEdgeList(telst))
     return (tmat, tind), telst
