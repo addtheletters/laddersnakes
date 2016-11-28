@@ -22,9 +22,10 @@ def bellmanford(graph, src):
 
     for edge in edges:
         if dist[edge[0][1]] > dist[edge[0][0]] + edge[1]:
-            print("Negative weight cycle with edge " + edge[0])
+            print("Negative weight cycle with edge " + str(edge[0]))
 
     return dist, path
 
 print( bellmanford(tg.adjList(), "A") )
-# needs test case for negative cycle
+print( bellmanford(tg.adjNegative(), "O"))
+print( bellmanford(tg.adjNegative(True), "O")) # with cycles

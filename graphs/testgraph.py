@@ -20,10 +20,33 @@ _TGRAPH_AUX = {
     "N":{"L":10, "M":11}
 }
 
+_TGRAPH_NEG_NOCYC = {
+    "O":{"P":30, "R":-3},
+    "P":{"Q":21, "O":7, "S":11},
+    "Q":{"R":4, "S":3, "T":9},
+    "R":{"O":14, "P":17, "T":8},
+    "S":{"O":5, "Q":-2, "T":26},
+    "T":{"Q":4, "R":10, "P":18}
+}
+
+_TGRAPH_NEG_CYC = {
+    "O":{"P":-4, "R":-3},
+    "P":{"Q":21, "O":7, "S":1},
+    "Q":{"R":4, "S":-1, "T":9},
+    "R":{"O":14, "P":17, "T":8},
+    "S":{"O":2, "Q":-2, "T":26},
+    "T":{"Q":4, "R":10, "P":18}
+}
+
 def adjList(aux=False):
     if aux:
         return _TGRAPH_AUX
     return _TGRAPH
+
+def adjNegative(cycles=False):
+    if cycles:
+        return _TGRAPH_NEG_CYC
+    return _TGRAPH_NEG_NOCYC
 
 def fromAdjMat(amat, ind=None):
     alst = {}
