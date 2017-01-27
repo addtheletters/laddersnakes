@@ -30,8 +30,7 @@ def dijkstra_noPQ(graph, src): # not using a priority queue
                     path[adj] = vertex
 
     while len(unvisited) > 0:
-        v = findMinDist()
-        relax(v)
+        relax(findMinDist())
     
     return dist, path
 
@@ -57,11 +56,9 @@ def dijkstra_PQ(graph, src):
                     pq[adj] = dist[adj]
 
     while len(unvisited) > 0:
-        v = findMinDist()
-        relax(v)
+        relax(findMinDist())
     
     return dist, path
 
-print(tg.adjList())
 print(dijkstra_noPQ(tg.adjList(), "A"))
 print(dijkstra_PQ(tg.adjList(), "A"))
